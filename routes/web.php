@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('create');
-});
+
+Route::get('/', [UserController::class, 'create'])->name('user.create');
+Route::post('/created', [UserController::class, 'created'])->name('user.created');
