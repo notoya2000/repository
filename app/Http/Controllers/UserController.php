@@ -23,7 +23,9 @@ class UserController extends Controller
         $user->email = $request->input('e-mail');
         $user->password = $request->input('password');
         $user->save();
-        return redirect('created')->with('success', 'User created successfully.');
+        
+
+        return view('created');
 
     }
 }
