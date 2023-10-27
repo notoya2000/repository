@@ -25,7 +25,8 @@ class UserController extends Controller
         $user->save();
         
 
-        return view('created');
+        return view('created', ['username' => $user->name]);
+
 
     }
 }
