@@ -18,7 +18,7 @@ use App\Http\Controllers\TwitterController;
 Route::get('/', [UserController::class, 'create'])->name('user.create');
 Route::post('/created', [UserController::class, 'created'])->name('user.created');
 Route::get('/timeline', [TwitterController::class, 'index'])->name('twitter.index');
-Route::get('/tweet', [TwitterController::class, 'tweet'])->name('twitter.tweeet');
+Route::get('/tweet', [TwitterController::class, 'tweet'])->name('twitter.tweet');
 Route::post('/tweet', [TwitterController::class, 'tweet'])->name('twitter.tweet');
 
 
