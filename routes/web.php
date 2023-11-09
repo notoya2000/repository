@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\TwitterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,3 +17,11 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [UserController::class, 'create'])->name('user.create');
 Route::post('/created', [UserController::class, 'created'])->name('user.created');
+Route::get('/timeline', [TwitterController::class, 'index'])->name('twitter.index');
+Route::get('/tweet', [TwitterController::class, 'tweet'])->name('twitter.tweeet');
+Route::post('/tweet', [TwitterController::class, 'tweet'])->name('twitter.tweet');
+
+
+
+
+
