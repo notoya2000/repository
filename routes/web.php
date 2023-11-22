@@ -21,7 +21,7 @@ Route::get('/timeline', [TwitterController::class, 'index'])->name('twitter.inde
 Route::get('/tweet', [TwitterController::class, 'tweet'])->name('twitter.tweet');
 Route::post('/tweet', [TwitterController::class, 'tweet'])->name('twitter.tweet');
 Route::post('/timeline', [TwitterController::class, 'store'])->name('twitter.store');
-
+Route::get('/detail', [TwitterController::class, 'indetail'])->name('twitter.indetail');
 
 
 

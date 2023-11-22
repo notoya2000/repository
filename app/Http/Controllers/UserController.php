@@ -24,7 +24,7 @@ class UserController extends Controller
         $user->password = $request->input('password');
         $user->save();
         
-
+        session(['username' => $user->name]);
         return view('created', ['username' => $user->name]);
 
 

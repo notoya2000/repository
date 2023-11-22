@@ -7,10 +7,15 @@ use App\Models\Twitter;
 class TwitterController extends Controller
 {
   public function index(){
+    $username = session('username');
     
-    return view('timeline');
+    return view('timeline', ['username' => $username]);
   }  
-   
+  public function indetail(){
+    $username = session('username');
+    
+    return view('detail', ['username' => $username]);
+  }
   public function tweet(){
     return view('post');
   }
