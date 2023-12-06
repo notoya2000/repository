@@ -37,4 +37,14 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    // public function showLoginForm(){
+    //     dd();
+    //     return view('login.blade.php');
+        
+    // }
+
+    // public function login(){
+    //     dd();
+    // }
 }
