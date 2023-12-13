@@ -2,5 +2,5 @@
  
 <h2>{{$username}}</h2>
  
-<a href="">フォロー一覧</a>
-<a href="">フォローワー一覧</a>
+<a href="{{ route('twitter.follow') }}">フォロー一覧</a>
+<a href="{{ route('twitter.follower') }}">フォローワー一覧</a>

@@ -64,6 +64,8 @@
                                 @endif
                             </div>
                         </div>
+
+                        <a href= "{{ route('user.create') }}">新規登録はこちら</a>
                     </form>
                 </div>
             </div>
