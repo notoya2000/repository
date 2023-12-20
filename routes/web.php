@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TwitterController;
+use App\Http\Controllers\FollowController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,9 +23,8 @@ Route::get('/tweet', [TwitterController::class, 'tweet'])->name('twitter.tweet')
 Route::post('/tweet', [TwitterController::class, 'tweet'])->name('twitter.tweet');
 Route::post('/timeline', [TwitterController::class, 'store'])->name('twitter.store');
 Route::get('/detail', [TwitterController::class, 'indetail'])->name('twitter.indetail');
-Route::get('/follow', [TwitterController::class, 'follow'])->name('twitter.follow');
-Route::get('/follower', [TwitterController::class, 'follower'])->name('twitter.follower');
-
+Route::post('/follow', [FollowController::class, 'follow'])->name('follow.follow');
+Route::get('/user_list', [UserController::class, 'index'])->name('user.index');
 
 
 

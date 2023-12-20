@@ -5,9 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     //
+    public function index(){
+        // 現在ログインしているユーザーのIDを取得
+        $currentUserId = Auth::id();
+
+        // ログインユーザーを除くすべてのユーザーを取得
+        $users = User::where('id', '!=', $currentUserId)->get();
+
+        return view('index', compact('users'));
+    }
     public function create() {
         return view('create');
     }
