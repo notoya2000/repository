@@ -7,11 +7,11 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 class FollowController extends Controller
 {
-  public function follow(Request $user)
+  public function follow(User $user)
     {
         
         
-        Auth::user()->followings()->attach($user);
+        Auth::user()->followings()->attach($user->id);
         return back();
     }
 

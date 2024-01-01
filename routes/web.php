@@ -23,7 +23,8 @@ Route::get('/tweet', [TwitterController::class, 'tweet'])->name('twitter.tweet')
 Route::post('/tweet', [TwitterController::class, 'tweet'])->name('twitter.tweet');
 Route::post('/timeline', [TwitterController::class, 'store'])->name('twitter.store');
 Route::get('/detail', [TwitterController::class, 'indetail'])->name('twitter.indetail');
-Route::post('/follow', [FollowController::class, 'follow'])->name('follow.follow');
+Route::post('/follow/{user}', [FollowController::class, 'follow'])->name('follow.follow');
+Route::post('/unfollow/{user}', [FollowController::class, 'unfollow'])->name('follow.unfollow');
 Route::get('/user_list', [UserController::class, 'index'])->name('user.index');
 
 
