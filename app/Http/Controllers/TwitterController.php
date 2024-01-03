@@ -9,9 +9,19 @@ class TwitterController extends Controller
 {
   public function index(){
     $username = session('username');
-    
-    return view('timeline', ['username' => $username]);
+    $tweets = $this->getTimelineTweet();
+    return view('timeline', compact('tweets','username'));
   }  
+
+  public function getTimelineTweet(){
+    // ログインユーザーのIDとフォローしているユーザーのIDを取得
+    $userIds = Auth::user()->followings->pluck('id')->toArray();
+    array_push($userIds, Auth::id());
+    
+    // これらのユーザーのツイートを取得
+    $tweets = Twitter::whereIn('user_id', $userIds)->latest()->get();
+    return $tweets;
+  }
   public function indetail(){
     $username = session('username');
     
@@ -29,15 +39,20 @@ class TwitterController extends Controller
     $twitter->user_id = Auth::id();
     $twitter->save();
 
-    return view('timeline', ['username' => $username]);
+    $tweets = $this->getTimelineTweet();
+
+    return view('timeline', compact('tweets','username'));
   }
 
   public function follow(){
-    return view('follow');
+    $followings = Auth::user()->followings;
+    return view('follow', compact('followings'));
+    
   }
 
   public function follower(){
-    return view('follower');
+    $followers = Auth::user()->followers;
+    return view('follower', compact('followers'));
 
   }
 }

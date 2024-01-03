@@ -26,7 +26,6 @@ Route::get('/detail', [TwitterController::class, 'indetail'])->name('twitter.ind
 Route::post('/follow/{user}', [FollowController::class, 'follow'])->name('follow.follow');
 Route::post('/unfollow/{user}', [FollowController::class, 'unfollow'])->name('follow.unfollow');
 Route::get('/user_list', [UserController::class, 'index'])->name('user.index');
-
-
-
+Route::get('/follow_list', [TwitterController::class, 'follow'])->name('twitter.follow');
+Route::get('/follower_list', [TwitterController::class, 'follower'])->name('twitter.follower');
 
