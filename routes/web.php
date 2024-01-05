@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TwitterController;
 use App\Http\Controllers\FollowController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +15,7 @@ use App\Http\Controllers\FollowController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Auth::routes();
 
 Route::get('/', [UserController::class, 'create'])->name('user.create');
