@@ -11,14 +11,14 @@
                     <!-- フォロー状態に応じたボタンの表示 -->
                     @if (Auth::user()->followings->contains($user))
                         <!-- フォロー解除のフォーム -->
-                        <form action="{{ route('follow.unfollow', ['user' => $user->id]) }}" method="POST">
+                        <form action="{{ route('follow.unfollow', $user->id) }}" method="POST">
                             @csrf
                            
                             <button type="submit">フォローを外す</button>
                         </form>
                     @else
                         <!-- フォローのフォーム -->
-                        <form action="{{ route('follow.follow', ['user' => $user->id]) }}" method="POST">
+                        <form action="{{ route('follow.follow', $user->id) }}" method="POST">
                             @csrf
                             <button type="submit">フォロー</button>
                         </form>
