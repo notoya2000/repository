@@ -27,12 +27,14 @@ class UserController extends Controller
             'username' => 'required',
             'e-mail' => 'required|email',
             'password' => 'required',
+            
         ]);
 
         $user = new User;
         $user->name = $request->input('username');
         $user->email = $request->input('e-mail');
         $user->password = Hash::make($request->input('password') );
+        $user->sex = $request->input('sex','3'); 
         $user->save();
         
         session(['username' => $user->name]);
