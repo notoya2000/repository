@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ValidationRequest;
 class UserController extends Controller
 {
     //
@@ -22,13 +23,8 @@ class UserController extends Controller
         return view('create');
     }
 
-    public function created(Request $request) {
-        $request->validate([
-            'username' => 'required',
-            'e-mail' => 'required|string',
-            'password' => 'required',
-            
-        ]);
+    public function created(ValidationRequest $request) {
+
 
         $user = new User;
         $user->name = $request->input('username');
